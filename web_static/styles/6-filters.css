@@ -1,4 +1,5 @@
 .container .filters {
+	order: 1;
 	background-color:  white;
 	height: 70px;
 	width: 100%;
@@ -32,7 +33,6 @@
 	order: 2;
 	height: 100%;
 	width: 25%;
-	display: inline-block
 }
 .filters h3 {
 	font-weight: 600;
@@ -55,6 +55,7 @@
 	background-color: #FAFAFA;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+	position: sticky;
 }
 .locations:hover .popover,
 .amenities:hover .popover {
