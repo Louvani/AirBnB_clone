@@ -158,6 +158,10 @@ class HBNBCommand(cmd.Cmd):
             self.do_all(line.split(".")[0])
         elif line.rfind(".count()") != -1:
             self.do_count(line.split(".")[0])
+        elif line.rfind(".show(") != -1:
+            name_class = line.split(".")[0]
+            id_num = line.split("\"")[1]
+            self.do_show(name_class + " " + id_num)
         else:
             print("** command not found **")
 
