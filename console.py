@@ -142,7 +142,16 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
 
     def do_count(self, args):
-        pass
+        if not args:
+            print("** needs class name **")
+        elif args in self.__models_list:
+            num = 0
+            for key in self.__prev_objects.keys():
+                if key.rfind(args) != -1:
+                    num += 1
+            print(num)
+        else:
+            print("** class doesn't exist **")
 
     def default(self, line):
         if line.rfind(".all()") != -1:
