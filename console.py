@@ -114,7 +114,6 @@ class HBNBCommand(cmd.Cmd):
         except NameError:
             print("** class doesn't exist **")
 
-
     def do_update(self, args):
         '''Updates an instance based on the class name and id
         by adding or updating attribute (save the change into
@@ -141,6 +140,17 @@ class HBNBCommand(cmd.Cmd):
                     self.__prev_objects[key].\
                         __dict__[my_list[2]] = eval(my_list[3])
                     storage.save()
+
+    def do_count(self, args):
+        pass
+
+    def default(self, line):
+        if line.rfind(".all()") != -1:
+            self.do_all(line.split(".")[0])
+        elif line.rfind(".count()") != -1:
+            self.do_count(line.split(".")[0])
+        else:
+            print("** command not found **")
 
 
 if __name__ == '__main__':
