@@ -104,7 +104,6 @@ class HBNBCommand(cmd.Cmd):
             print(my_list)
             return
         try:
-            # args = line.split(" ")
             if args not in self.__models_list:
                 raise NameError()
             for key in self.__prev_objects.keys():
@@ -162,6 +161,10 @@ class HBNBCommand(cmd.Cmd):
             name_class = line.split(".")[0]
             id_num = line.split("\"")[1]
             self.do_show(name_class + " " + id_num)
+        elif line.rfind(".destroy(") != -1:
+            name_class = line.split(".")[0]
+            id_num = line.split("\"")[1]
+            self.do_destroy(name_class + " " + id_num)
         else:
             print("** command not found **")
 
